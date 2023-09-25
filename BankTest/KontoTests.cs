@@ -19,7 +19,7 @@ namespace BankTests
         }
 
         [TestMethod]
-        public void Konto_GuthabenVerringertSich()
+        public void Auszahlen_GuthabenVerringertSich()
         {
             //arrange
             int guthaben = 200;
@@ -37,7 +37,7 @@ namespace BankTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Konto_AuszahlenGibtFehler()
+        public void Auszahlen_WirftUngenuegendGuthabenFehler()
         {
             //arrange
             int guthaben = 100;
@@ -54,7 +54,7 @@ namespace BankTests
         }
 
         [TestMethod]
-        public void Einzahlen_KontoGuthaben()
+        public void Einzahlen_AddiertGuthaben()
         {
             //arrange
             int startguthaben = 100;
