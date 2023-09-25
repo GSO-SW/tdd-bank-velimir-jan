@@ -7,3 +7,16 @@ TODO:
 - Bitte überprüfen:
 - Finden Sie Fehler in der Implementierung?
 - Finden Sie "Verbesserungen" in den UserStories?
+
+# Anleitung zur Erstellung von Unit UnitTests
+1. Zu testende Klasse als öffentlich deklarieren
+2. Neues Komponententestprojekt zur Projektmappe hinzufügen
+3. Verweis auf zu testendes Projekt hinzufügen
+4. Using-Direktive für den Namensraum der zu testenden Klasse hinzufügen
+5. Testmethode implementieren
+- Attribut `[TestMethod]` in eine eigene Zeile vor der Methodendeklaration schreiben
+- Testmethoden haben keine Übergabeparameter und keinen Rückgabewert
+- Name: zu testende Methode_Informationen_zum_erwarteten_Verhalten, z.B. Skalieren_AendertBreiteUndHoehe oder Skalieren_Faktor_Null_Schlaegt_Fehl
+- Muster Arrange – Act – Assert (AAA) verwenden
+
+6. Tests ausführen
