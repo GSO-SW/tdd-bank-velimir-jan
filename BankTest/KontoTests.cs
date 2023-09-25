@@ -36,6 +36,24 @@ namespace BankTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void Konto_AuszahlenGibtFehler()
+        {
+            //arrange
+            int guthaben = 100;
+            int auszahlen = 150;
+            int sollEndGuthaben = 100;
+
+            Bank.Konto konto2 = new Bank.Konto(guthaben);
+
+            //act
+            konto2.Auszahlen(auszahlen);
+
+            //assert
+            Assert.AreEqual(konto2.Guthaben, sollEndGuthaben);
+        }
+
+        [TestMethod]
         public void Einzahlen_KontoGuthaben()
         {
             //arrange
