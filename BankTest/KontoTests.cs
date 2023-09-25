@@ -1,3 +1,5 @@
+using Bank;
+
 namespace BankTests
 {
     [TestClass]
@@ -31,6 +33,22 @@ namespace BankTests
 
             //assert
             Assert.AreEqual(konto2.Guthaben, sollEndGuthaben);
+        }
+
+        [TestMethod]
+        public void Einzahlen_KontoGuthaben()
+        {
+            //arrange
+            int startguthaben = 100;
+            int einzahlbetrag = 50;
+            int sollbetrag = startguthaben + einzahlbetrag;
+            Konto test = new Konto(startguthaben);
+
+            //act
+            test.Einzahlen(einzahlbetrag);
+
+            //assert
+            Assert.AreEqual(sollbetrag, test.Guthaben);
         }
     }
 }
