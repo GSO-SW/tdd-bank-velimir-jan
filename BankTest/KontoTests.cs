@@ -6,67 +6,94 @@ namespace BankTests
     public class KontoTests
     {
         [TestMethod]
-        public void Konto_WirdMitGuthabenErstellt()
+        public void Konto_KannErstelltWerden()
         {
-            //arrange
-            int guthaben = 120;
+            // Arrange
+            double guthaben = 100.00;
 
-            //act
-            Bank.Konto konto1 = new Bank.Konto(guthaben);
+            // Act
+            Konto k = new Konto(guthaben);
 
-            //assert
-            Assert.AreEqual(konto1.Guthaben, guthaben);
+
+            // Assert
+            Assert.AreEqual(guthaben, k.Guthaben);
         }
 
-        [TestMethod]
-        public void Auszahlen_GuthabenVerringertSich()
-        {
-            //arrange
-            int guthaben = 200;
-            int auszahlen = 150;
-            int sollEndGuthaben = 50;
-
-            Bank.Konto konto2 = new Bank.Konto(guthaben);
-
-            //act
-            konto2.Auszahlen(auszahlen);
-
-            //assert
-            Assert.AreEqual(konto2.Guthaben, sollEndGuthaben);
-        }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Auszahlen_WirftUngenuegendGuthabenFehler()
+        public void Konto_KannNichtMitNegativemBetragErstelltWerden()
         {
-            //arrange
-            int guthaben = 100;
-            int auszahlen = 150;
-            int sollEndGuthaben = 100;
+            // Arrange
+            double guthaben = -0.1;
 
-            Bank.Konto konto2 = new Bank.Konto(guthaben);
-
-            //act
-            konto2.Auszahlen(auszahlen);
-
-            //assert
-            Assert.AreEqual(konto2.Guthaben, sollEndGuthaben);
+            // Act
+            Konto k = new Konto(guthaben);
         }
 
         [TestMethod]
-        public void Einzahlen_AddiertGuthaben()
+        public void Einzahlen_GuthabenSteigt()
         {
-            //arrange
-            int startguthaben = 100;
-            int einzahlbetrag = 50;
-            int sollbetrag = startguthaben + einzahlbetrag;
-            Konto test = new Konto(startguthaben);
+            // Arrange
+            double startbetrag = 120.0;
+            Konto k = new Konto(startbetrag);
+            double einzahlungsbetrag = 80.00;
 
-            //act
-            test.Einzahlen(einzahlbetrag);
+            // Act
+            k.Einzahlen(einzahlungsbetrag);
 
-            //assert
-            Assert.AreEqual(sollbetrag, test.Guthaben);
+            // Assert
+            Assert.AreEqual(200.00, k.Guthaben);
+        }
+
+        [TestMethod]
+        public void Auszahlen_GuthabenSinkt()
+        {
+            // Arrange
+            double startbetrag = 120.0;
+            Konto k = new Konto(startbetrag);
+            double auszahlungsbetrag = 80.00;
+
+            // Act
+            k.Auszahlen(auszahlungsbetrag);
+
+            // Assert
+            Assert.AreEqual(40.00, k.Guthaben);
+        }
+
+        [TestMethod]
+        public void KontoNr_KannAbgefragtWerden()
+        {
+            // Arrange
+            double startbetrag = 0.0;
+
+            // Act
+            Konto k = new Konto(startbetrag );
+
+            //Arrange
+            Assert.IsTrue(k.KontoNr > 0);
+            Assert.IsInstanceOfType(k.KontoNr, typeof(int));
+        }
+
+        [TestMethod]
+        public void Nr_WirdAutomatischVergeben()
+        {
+            // Arrange
+            double startbetrag = 0.0;
+
+            // Act
+            Konto k1 = new Konto(startbetrag );
+            Konto k2 = new Konto(startbetrag );
+            Konto k3 = new Konto(startbetrag );
+
+            // Assert
+            Assert.IsTrue(k1.KontoNr > 0);
+            Assert.IsTrue(k2.KontoNr > k1.KontoNr);
+            Assert.IsTrue(k3.KontoNr > k2.KontoNr);
+            Assert.AreNotEqual(k1.KontoNr, k2.KontoNr);
+            Assert.AreNotEqual(k1.KontoNr, k3.KontoNr);
+            Assert.AreNotEqual(k2.KontoNr, k3.KontoNr);
+
         }
     }
 }
