@@ -42,7 +42,18 @@ namespace Bank
             this.guthaben = 0.0;
             this.zinssatz = 0.0;
         }
-
+        public void Auszahlen(double betrag)
+        {
+            if (guthaben >= betrag)
+            {
+                guthaben -= betrag;
+                verrechnungskonto.Einzahlen(betrag);
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("Guthaben nicht ausreichend");
+            }
+        }
 
     }
 }
