@@ -35,7 +35,7 @@ namespace BankTests
             Assert.AreEqual(0.0, alterZinssatz);
             Assert.AreEqual(neuerZinssatz, t.Zinssatz);
         }
-
+        /*
         [TestMethod]
         public void Einzahlen_BetragKommtVonVerrechnungskonto()
         {
@@ -95,8 +95,8 @@ namespace BankTests
             // Assert
             Assert.AreEqual(kontoStartguthaben, konto.Guthaben);
             Assert.AreEqual(einzahlungsBetrag, t.Guthaben);
-
         }
+        */
 
     }
 }

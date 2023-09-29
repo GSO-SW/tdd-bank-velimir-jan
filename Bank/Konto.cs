@@ -12,7 +12,7 @@ namespace Bank
         {
             get
             {
-                return guthaben;
+                return this.guthaben;
             }
         }
 
