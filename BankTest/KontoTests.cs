@@ -68,7 +68,7 @@ namespace BankTests
             double startbetrag = 0.0;
 
             // Act
-            Konto k = new Konto(startbetrag );
+            Konto k = new Konto(startbetrag);
 
             //Arrange
             Assert.IsTrue(k.KontoNr > 0);

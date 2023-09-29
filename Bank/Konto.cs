@@ -4,6 +4,7 @@ namespace Bank
 {
     public class Konto
     {
+        static int kontoCount = 0;
         private double guthaben;
         private int kontoNr;
 
@@ -28,6 +29,8 @@ namespace Bank
             }
 
             this.guthaben = guthaben;
+            kontoCount++;
+            this.kontoNr = kontoCount;
         }
 
         public void Einzahlen(double betrag)
