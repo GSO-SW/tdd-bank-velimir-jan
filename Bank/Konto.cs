@@ -5,6 +5,7 @@ namespace Bank
     public class Konto
     {
         private double guthaben;
+        private int kontoNr;
 
         public double Guthaben
         {
@@ -12,6 +13,11 @@ namespace Bank
             {
                 return guthaben;
             }
+        }
+
+        public int KontoNr
+        {
+            get { return kontoNr; }
         }
 
         public Konto(double guthaben)
