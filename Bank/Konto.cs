@@ -4,7 +4,7 @@ namespace Bank
 {
     public class Konto
     {
-        static int kontoCount = 0;
+        private static int kontoCount = 0;
         private double guthaben;
         private int kontoNr;
 

@@ -76,7 +76,7 @@ namespace BankTests
         }
 
         [TestMethod]
-        public void Nr_WirdAutomatischVergeben()
+        public void KontoNr_WirdAutomatischVergeben()
         {
             // Arrange
             double startbetrag = 0.0;
